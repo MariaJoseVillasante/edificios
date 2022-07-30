@@ -1,0 +1,32 @@
+<h1 class="mb-5 d-flex justify-content-center">Lista de edificios</h1>
+<table class="table table-bordered" >
+    <thead>
+        <tr>
+            <th>Id Edificio</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @edificios.each do |edificio| %>
+            <tr>
+                <td><%= edificio.id %></td>
+                <td><%= edificio.nombre %></td>
+                <td><%= edificio.direccion %></td>
+                <td><%= edificio.ciudad %></td>
+                <td class="d-flex justify-content-evenly"><%= link_to edificio, class:"btn btn-secondary" do%>show <%end%>
+                    <%= link_to "Editar", edit_edificio_path(edificio), class:"btn btn-secondary"%>
+                    <%= button_to "Eliminar", edificio, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>
+                <%# link_to "show", edificio, class:"btn btn-primary" %> 
+                <%# <%= link_to "Eliminar", edificio, data: {turbo_method: :delete}, class:"btn btn-danger" %> 
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<div class="d-flex justify-content-evenly">
+<%= link_to "Crear edificio nuevo", new_edificio_path, class: "btn btn-secondary" %>
+<%= link_to "Lista de departamentos", departamentos_path, class: "btn btn-secondary" %>
+</div>

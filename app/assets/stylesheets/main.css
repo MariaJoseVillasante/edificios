@@ -1,0 +1,7 @@
+body {
+    /* background-image: url("images/pexels-picjumbocom-196667"); */
+    /* background-image: url("../images/pexels-picjumbocom-196667.jpg"); */
+    /* background: url("images/pexels-picjumbocom-196667") no-repeat center center; */
+    background-image: url(/assets/pexels-picjumbocom-196667);
+    background-size: cover;
+}
