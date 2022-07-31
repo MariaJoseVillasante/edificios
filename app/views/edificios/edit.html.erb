@@ -1,5 +1,5 @@
 <div>
-    <h1>Crear Edificios</h1>
+    <h1>Editar Edificio</h1>
 <div class="col-6">
     <%= form_with(model: @edificio) do |form| %>
         <% if @edificio.errors.any? %>
@@ -27,9 +27,9 @@
         </div>
         <div>
             <%# <%= form.submit "Guardar" %>
-            <%= form.submit nil, class: "btn btn-primary mt-5" %>
+            <%= form.submit nil, class: "btn btn-secondary mt-5" %>
         </div>
     <% end %>
     </div>
 </div>
-<%= link_to "Index", list_edificios_path, class: "btn btn-secondary mt-5" %>
+<%= link_to "Lista de edificios", list_edificios_path, class: "btn btn-secondary mt-5" %>

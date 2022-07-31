@@ -1,0 +1,27 @@
+<div>
+    <h1>Esta es la vista para crear clientes</h1>
+    <div class="col-6">
+        <%= form_with(model: @cliente) do |form|%>
+            <div>
+                <%= form.label :nombre %>
+                <%= form.text_field :nombre, class: "form-control"  %>
+            </div>
+            <div>
+                <%= form.label :apellido %>
+                <%= form.text_field :apellido, class: "form-control"  %>
+            </div>
+            <div>
+                <%= form.label :email %>
+                <%= form.text_field :email, class: "form-control"  %>
+            </div>
+            <div>
+                <%= form.label :telefono %>
+                <%= form.text_field :telefono, class: "form-control"  %>
+            </div>
+            <div>
+                <%= form.submit nil, class: "btn btn-secondary mt-5" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+<%= link_to "Lista Clientes", clientes_path, class: "btn btn-secondary mt-5" %>

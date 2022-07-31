@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<!-- CSS only bootstrap-->
+    <%# icono %>
+    <!-- https://www.svgrepo.com/svg/202946/web-design -->
+    <link rel="shortcut icon" href="/assets/city-view-svgrepo-com.svg" type="image/x-icon">
+    <!-- CSS only bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">    
     <%# fin bootstrap %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -15,29 +18,30 @@
   <body>
   <nav class="navbar navbar-expand-lg bg-light mb-5">
   <div class="container-fluid">
-    <%# <a class="navbar-brand" href="#">DEPTOS</a> %>
     <%= link_to "DEPTOS", root_path, class:"navbar-brand nav-link active" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%# <%=  <a class="nav-link", link_to departamentos_path>Departamentos</a>%>
-          <%= link_to "Lista de departamentos", departamentos_path, class:"nav-link active" %>
+          <%= link_to "Inicio", root_path, class:"nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Clientes", clientes_path, class:"nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Departamentos", departamentos_path, class:"nav-link active" %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Edificios</a>
-          <%# <%= link_to "Lista de los edificios", list_edificios_path, class: "nav-link dropdown-toggle"%> 
-          <%=  %>
           <ul class="dropdown-menu">
-            <%# <li><a class="dropdown-item" href="#">Action</a></li> %>
-            <%# <% @edificios.each do |edificio| %> 
+            <% @edificios.each do |edificio| %>  
               <li>
-                <%# <%= link_to edificio.nombre, edit_edificio_path, class: "dropdown-item"%>  
+                <a class="dropdown-item" href="/edificios/<%= edificio.id %>"><%= edificio.nombre %></a>
               </li>
-            <%# <% end %> 
-            <%# <li><hr class="dropdown-divider"></li> %>
+            <% end %> 
+            <li><hr class="dropdown-divider"></li> 
             <li>
               <%= link_to "Lista de los edificios", list_edificios_path, class: "dropdown-item"%>
             </li>
@@ -52,25 +56,32 @@
           <a class="nav-link disabled">Administración</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <%# <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+      </form> %>
     </div>
   </div>
 </nav>
   <div class= container>
+  <%# inicio mensaje %>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+          <%= msg %>
+        </div>
+      <% end %>
+  <%# fin mensaje %>
     <%= yield %>
   </div>  
   <!-- JavaScript Bundle with Popper desde bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <%# fin bootstrap %>
-  </body>
     <footer class="bg-light mt-5 container-fluid text-center p-4">
       <%# <p class="">DEPTOS </p> %>
-      <h6 class="m-4 pb-3">© 2022 <a href="https://mariajosevillasante.github.io/mi_pagina/">María José Villasante</a> para DEPTOS Latam. Todos los derechos reservados.</h6>
+      <h6 class="m-4 pb-3">© <%= Time.now.year %> <a href="https://mariajosevillasante.github.io/mi_pagina/">María José Villasante</a> para DEPTOS Latam. Todos los derechos reservados.</h6>
     </footer>
-  
+  </body>
+
   
 </html>

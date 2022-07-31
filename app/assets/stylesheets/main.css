@@ -1,7 +1,11 @@
 body {
-    /* background-image: url("images/pexels-picjumbocom-196667"); */
-    /* background-image: url("../images/pexels-picjumbocom-196667.jpg"); */
-    /* background: url("images/pexels-picjumbocom-196667") no-repeat center center; */
     background-image: url(/assets/pexels-picjumbocom-196667);
+    /* mix-blend-mode: screen; */
+    /* z-index: -1; */
     background-size: cover;
+    /* opacity: 0.8; */
+}
+.tabla {
+    background-color: lightgray;
+    opacity: 0.8;
 }

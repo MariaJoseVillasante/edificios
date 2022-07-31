@@ -1,5 +1,5 @@
 <h1 class="mb-5 d-flex justify-content-center">Lista de departamentos</h1>
-<table class="table table-bordered" >
+<table class="table table-bordered tabla">
     <thead>
         <tr>
             <th>Id Departamento</th>
@@ -16,11 +16,9 @@
                 <td><%= departamento.numero %></td>
                 <td><%= departamento.edificio_id %></td>
                 <td><%= departamento.edificio.nombre %></td>
-                <td class="d-flex justify-content-evenly"><%= link_to departamento, class:"btn btn-secondary" do%>show <%end%>
+                <td class="d-flex justify-content-evenly"><%= link_to departamento, class:"btn btn-secondary" do%>Ver <%end%>
                     <%= link_to "Editar", edit_departamento_path(departamento), class:"btn btn-secondary"%>
                     <%= button_to "Eliminar", departamento, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>
-                <%# link_to "show", edificio, class:"btn btn-primary" %> 
-                <%# <%= link_to "Eliminar", edificio, data: {turbo_method: :delete}, class:"btn btn-danger" %> 
                 </td>
             </tr>
         <% end %>
@@ -30,3 +28,4 @@
 <%= link_to "Crear departamento nuevo", new_departamento_path, class: "btn btn-secondary" %>
 <%= link_to "Lista de edificios", edificios_path, class: "btn btn-secondary" %>
 </div>
+<%= link_to 'Volver', :back, class:"" %>

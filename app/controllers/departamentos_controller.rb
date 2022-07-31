@@ -24,7 +24,7 @@ class DepartamentosController < ApplicationController
         if @departamento.save
             redirect_to departamentos_path, notice: "Departamento Creado Exitosamente."
         else
-            render :new, status: :unprocessable_entity        
+            redirect_to new_departamento_url, notice: "Departamento ya existe"
         end
     end
     def update

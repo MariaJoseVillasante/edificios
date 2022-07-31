@@ -1,0 +1,33 @@
+<h1 class="mb-5 d-flex justify-content-center">Lista de clientes</h1>
+<table class="table table-bordered tabla" >
+    <thead>
+        <tr>
+            <th>ID Cliente</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @clientes.each do |cliente| %>
+            <tr>
+                <td> <%= cliente.id %> </td>
+                <td> <%= cliente.nombre %></td>
+                <td> <%= cliente.apellido %></td>
+                <td> <%= cliente.email %></td>
+                <td> <%= cliente.telefono %></td>
+                <td class="d-flex justify-content-evenly"><%= link_to cliente, class:"btn btn-secondary" do%>Ver <%end%>
+                    <%= link_to "Editar", edit_cliente_path(cliente), class:"btn btn-secondary"%>
+                    <%= button_to "Eliminar", cliente, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<div class="d-flex justify-content-evenly">
+<%= link_to "Agregar cliente nuevo", new_cliente_path, class: "btn btn-secondary" %>
+<%= link_to "Lista de clientes", clientes_path, class: "btn btn-secondary" %>
+</div>
+<%= link_to 'Volver', :back, class:"" %>

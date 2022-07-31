@@ -1,0 +1,16 @@
+<h1 class="d-flex justify-content-evenly">Cliente</h1>
+<div class="container mt-5 d-flex justify-content-evenly">
+  <div class="card tabla" style="width: 25rem;"> 
+    <div class="card-body">
+      <h5 class="card-title">Nombre: <%= @cliente.nombre%> <%=  @cliente.apellido%></h5>
+      <h6 class="card-subtitle mb-2 text-muted">ID: <%= @cliente.id %></h6>
+      <p class="card-text">Mail: <%= @cliente.email %></p>
+      <p class="card-text">Teléfono: <%=  @cliente.telefono%></p>
+      <div class="d-flex justify-content-evenly">
+          <%= link_to 'Lista', clientes_path, class:"btn btn-secondary" %>
+          <%= link_to "Editar", edit_cliente_url(@cliente), class:"btn btn-secondary"%>
+          <%= link_to 'Nuevo', new_cliente_path, class:"btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

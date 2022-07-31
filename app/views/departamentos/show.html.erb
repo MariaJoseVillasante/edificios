@@ -1,14 +1,16 @@
+<h1 class="d-flex justify-content-evenly">Departamento</h1>
 <div class="container mt-5 d-flex justify-content-evenly">
-<div class="card" style="width: 25rem;"> 
-  <div class="card-body">
-    <h5 class="card-title">Edificio: <%= @departamento.numero %></h5>
-    <h6 class="card-subtitle mb-2 text-muted">ID: <%= @departamento.id %></h6>
-    <p class="card-text">Id Edificio: <%= @departamento.edificio_id %></p>
-    <p class="card-text">Nombre Edificio: <%=  @departamento.edificio.nombre%></p>
-    <div>
-        <%= link_to 'Lista Departamentos', departamentos_path, class:"btn btn-primary" %>
-        <%= link_to 'Crear Departamentos', new_departamento_path, class:"btn btn-primary" %>
+  <div class="card tabla" style="width: 25rem;"> 
+    <div class="card-body">
+      <h5 class="card-title">Edificio: <%= @departamento.numero %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">ID: <%= @departamento.id %></h6>
+      <p class="card-text">Id Edificio: <%= @departamento.edificio_id %></p>
+      <p class="card-text">Nombre Edificio: <%=  @departamento.edificio.nombre%></p>
+      <div class="d-flex justify-content-evenly">
+          <%= link_to 'Lista', departamentos_path, class:"btn btn-secondary" %>
+          <%= link_to "Editar", edit_departamento_path(@departamento), class:"btn btn-secondary"%>
+          <%= link_to 'Nuevo', new_departamento_path, class:"btn btn-secondary" %>
+      </div>
     </div>
   </div>
-</div>
 </div>

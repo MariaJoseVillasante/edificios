@@ -1,19 +1,20 @@
 <div class="container mt-5 d-flex justify-content-evenly mb-5">
-    <div class="card" style="width: 25rem;"> 
+    <div class="card tabla" style="width: 25rem;"> 
         <div class="card-body">
             <h5 class="card-title">Edificio: <%= @edificio.nombre %></h5>
             <h6 class="card-subtitle mb-2 text-muted">ID: <%= @edificio.id %></h6>
             <p class="card-text">Dirección: <%= @edificio.direccion %></p>
             <p class="card-text">Ciudad: <%=  @edificio.ciudad%></p>
             <div>
-                <%= link_to 'Lista Edificios', list_edificios_path, class:"btn btn-primary" %>
-                <%= link_to 'Crear Edificios', new_edificio_path, class:"btn btn-primary" %>
+                <%= link_to 'Lista', list_edificios_path, class:"btn btn-secondary" %>
+                <%= link_to 'Editar', edit_edificio_path(@edificio), class:"btn btn-secondary" %>
+                <%= link_to 'Nuevo', new_edificio_path, class:"btn btn-secondary" %>
             </div>
         </div>
     </div>
 </div>
 <h3 class="d-flex justify-content-evenly">Departamentos</h3>
-<table class= "table table-bordered">
+<table class= "table table-bordered tabla">
     <thead>
         <tr>
             <th>Numero</th>

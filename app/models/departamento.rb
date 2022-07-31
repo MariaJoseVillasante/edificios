@@ -3,7 +3,7 @@ class Departamento < ApplicationRecord
 
   # validate :departamento_unico
   validates :numero, presence: true
-  validates :edificio_id, presence: true
+  validates :edificio_id, presence: true, uniqueness: {scope: :numero}
 
 
   private
