@@ -28,5 +28,5 @@ production:
   <<: *default
   # database: db/production.sqlite3
   database: edificios_production
-  username: mariajosevillasante
+  username: edificios
   password: 1234
