@@ -1,0 +1,28 @@
+<%# <%= @posts %> 
+<table class="table tabla table-bordered">
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Imagen</th>
+        <th>Contenido</th>
+        <th>Fecha de publicación</th>
+        <th>Fecha de actualización</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @posts.each do |pos| %>
+        <tr>
+            <td><%= pos.title %> </td>   
+            <td><%= pos.image_url %></td>
+            <td><%= pos.content %></td>
+            <td><%= pos.created_at %></td>
+            <td><%= pos.updated_at %></td>
+            <%# <td class="d-flex justify-content-evenly"><%= link_to post, class:"btn btn-secondary" doVer <%end%> 
+                    <%# <%= link_to "Editar", edit_post_path(post), class:"btn btn-secondary"%> 
+                    <%# <%= button_to "Eliminar", post, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %> 
+        </tr>
+    <% end %>
+    </tbody>
+</table>    
+<%= link_to "Nuevo Post", pages_path, class: "btn btn-secondary" %>

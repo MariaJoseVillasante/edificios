@@ -1,5 +1,6 @@
 class Departamento < ApplicationRecord
   belongs_to :edificio
+  belongs_to :cliente
 
   # validate :departamento_unico
   validates :numero, presence: true

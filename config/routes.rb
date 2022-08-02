@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/index'
   get 'inicio/index'
   root 'inicio#index'
 
@@ -26,7 +27,9 @@ Rails.application.routes.draw do
   put "clientes/:id",       to: "clientes#update"
   delete "clientes/:id",    to: "clientes#destroy"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  get "pages/index",        to: "pages#index",      as: "pages"
+  get "pages/create",       to: "pages#create",     as: "create_pages"
+  get '/pages/dashboard',    to: "pages#dashboard",   as: "dashboard"  
   # Defines the root path route ("/")
   # root "articles#index"
 end
