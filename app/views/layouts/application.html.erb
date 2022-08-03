@@ -19,7 +19,10 @@
   <body>
   <nav class="navbar navbar-expand-lg bg-light mb-5">
   <div class="container-fluid">
-    <%= link_to "DEPTOS", root_path, class:"navbar-brand nav-link active" %>
+    <a class="navbar-brand" href="#">
+      <img src="https://www.svgrepo.com/show/83118/city-view.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          <%= link_to "DEPTOS", root_path, class:"navbar-brand nav-link active" %>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,7 +34,7 @@
         <li class="nav-item">
           <%= link_to "Clientes", clientes_path, class:"nav-link active" %>
         </li><li class="nav-item">
-          <%= link_to "Blog", dashboard_path, class:"nav-link active" %>
+          <%= link_to "Blog", dashboard_posts_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
           <%= link_to "Departamentos", departamentos_path, class:"nav-link active" %>
@@ -80,7 +83,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <%# fin bootstrap %>
-    <footer class="bg-light mt-5 container-fluid text-center p-4">
+    <footer class="bg-light mt-5 container-fluid text-center p-4 fixed-bottom">
       <%# <p class="">DEPTOS </p> %>
       <h6 class="m-4 pb-3">© <%= Time.now.year %> <a href="https://mariajosevillasante.github.io/mi_pagina/">María José Villasante</a> para DEPTOS Latam. Todos los derechos reservados.</h6>
     </footer>

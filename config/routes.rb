@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   get "pages/index",        to: "pages#index",      as: "pages"
   get "pages/create",       to: "pages#create",     as: "create_pages"
   get '/pages/dashboard',    to: "pages#dashboard",   as: "dashboard"  
+  
+  get "posts/index",        to: "posts#index",      as: "posts"
+  get "posts/create",       to: "posts#create",     as: "create_posts"
+  get '/posts/dashboard',    to: "posts#dashboard",   as: "dashboard_posts"  
   # Defines the root path route ("/")
   # root "articles#index"
 end
