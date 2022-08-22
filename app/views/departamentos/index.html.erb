@@ -1,12 +1,13 @@
 <h1 class="mb-5 d-flex justify-content-center">Lista de departamentos</h1>
-<nav class="navbar bg-transparent">
+<%# <nav class="navbar bg-transparent">
   <div class="container-fluid">
     <form class="d-flex ms-auto" role="search">
       <input name="numero" class="form-control me-2" type="search" placeholder="¿Que departamento buscas?" aria-label="Search">
       <button class="btn btn-outline-secondary" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav> %>
+
 <table class="table table-bordered tabla">
     <thead>
         <tr>
@@ -14,6 +15,8 @@
             <th>Número</th>
             <th>ID Edificio</th>
             <th>Nombre Edificio</th>
+            <th># Cliente</th>
+            <th>Cliente</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -24,6 +27,8 @@
                 <td><%= departamento.numero %></td>
                 <td><%= departamento.edificio_id %></td>
                 <td><%= departamento.edificio.nombre %></td>
+                <td><%= departamento.cliente.id %></td>
+                <td><%= departamento.cliente.nombre %> <%= departamento.cliente.apellido %></td>
                 <td class="d-flex justify-content-evenly"><%= link_to departamento, class:"btn btn-secondary" do%>Ver <%end%>
                     <%= link_to "Editar", edit_departamento_path(departamento), class:"btn btn-secondary"%>
                     <%= button_to "Eliminar", departamento, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>
@@ -32,6 +37,10 @@
         <% end %>
     </tbody>
 </table>
+<div class="d-flex justify-content-end">  
+<%= paginate @departamentos, theme: 'bootstrap-5' %> 
+<%# <%= paginate @books, theme: 'bootstrap-5' %> 
+</div>
 <div class="d-flex justify-content-evenly">
 <%= link_to "Crear departamento nuevo", new_departamento_path, class: "btn btn-secondary" %>
 <%= link_to "Lista de edificios", edificios_path, class: "btn btn-secondary" %>

@@ -74,3 +74,6 @@ group :test do
 end
 
 gem "faker"
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+gem 'ransack'

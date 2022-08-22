@@ -7,6 +7,7 @@
             <th>Apellido</th>
             <th>Email</th>
             <th>Teléfono</th>
+            <th>Propiedades</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -18,6 +19,7 @@
                 <td> <%= cliente.apellido %></td>
                 <td> <%= cliente.email %></td>
                 <td> <%= cliente.telefono %></td>
+                <td> <%= cliente.departamento.ids %></td>
                 <td class="d-flex justify-content-evenly"><%= link_to cliente, class:"btn btn-secondary" do%>Ver <%end%>
                     <%= link_to "Editar", edit_cliente_path(cliente), class:"btn btn-secondary"%>
                     <%= button_to "Eliminar", cliente, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>

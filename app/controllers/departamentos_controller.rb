@@ -4,14 +4,18 @@ class DepartamentosController < ApplicationController
     before_action :set_departamento, only: %i[ show edit update destroy ]
     # %i evita usar ; y :
     before_action :consulta_edificios, only: %i[ show new edit update]
+    before_action :consulta_clientes, only: %i[ show new edit update]
+
     def index
-        @departamentos = Departamento.includes(:edificio).order(created_at: :asc)
+        #@departamentos = Departamento.includes(:edificio).order(created_at: :asc)
         #includes arregla en n+1 optimiza la búsqueda
         #El método index del controlador disponibiliza por medio
         #de la variable de instancia @edificios, la lista de edificio disponible
         #para rutas anidadas:
         #@building = Building.find params[:building_id]
         #apartments = @building.apartments
+        #@departamentos = Departamento.includes(:edificio).order(created_at: :asc).page(params[:page])
+        @departamentos = Departamento.includes(:edificio, :cliente).page(params[:page])
     end
     def show
     end
@@ -47,9 +51,12 @@ class DepartamentosController < ApplicationController
         @departamento = Departamento.find(params[:id])
     end
     def departamento_params
-        params.require(:departamento).permit(:numero, :edificio_id)
+        params.require(:departamento).permit(:numero, :edificio_id, :cliente_id)
     end
     def consulta_edificios
         @edificios = Edificio.select(:id, :nombre).order(nombre: :asc)
+    end
+    def consulta_clientes
+        @clientes = Cliente.select(:id, :nombre).order(nombre: :asc)
     end
 end

@@ -6,6 +6,7 @@
       <h6 class="card-subtitle mb-2 text-muted">ID: <%= @cliente.id %></h6>
       <p class="card-text">Mail: <%= @cliente.email %></p>
       <p class="card-text">Teléfono: <%=  @cliente.telefono%></p>
+      <p class="card-text">Propiedades: <%=  @cliente.departamento.ids%></p>
       <div class="d-flex justify-content-evenly">
           <%= link_to 'Lista', clientes_path, class:"btn btn-secondary" %>
           <%= link_to "Editar", edit_cliente_url(@cliente), class:"btn btn-secondary"%>

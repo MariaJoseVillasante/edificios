@@ -22,7 +22,16 @@ for i in (1..10)
     i = Departamento.create([
         {numero: rand(100..999),
         edificio_id: rand(1..16),
-        cliente_id: 1}
+        cliente_id: rand(1..10)}
     ])
 end
+
+# for i in (1..10)
+#     i = Cliente.create([
+#         {nombre: Faker::Name.first_name,
+#         apellido: Faker::Name.last_name,
+#         email: Faker::Internet.free_email,
+#         telefono: rand(100111..9999999)}
+#     ])
+# end
 
