@@ -1,5 +1,5 @@
 class Edificio < ApplicationRecord
-    has_many :departamento, dependent: :delete_all
+    has_many :departamentos, dependent: :delete_all
     #aqui sabe cual es el nombre de la clave foranea
     #al modelo en plural en que clase y tabla
     validates :nombre, presence: true
@@ -9,4 +9,7 @@ class Edificio < ApplicationRecord
     #def Departamento
     #    Departamento.where(edificio_id: self.id)
     #end
+    # def to_s
+    #   name
+    # end
 end

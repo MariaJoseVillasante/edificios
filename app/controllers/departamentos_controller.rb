@@ -7,9 +7,11 @@ class DepartamentosController < ApplicationController
     def index
         @departamentos = Departamento.includes(:edificio).order(created_at: :asc)
         #includes arregla en n+1 optimiza la búsqueda
-
         #El método index del controlador disponibiliza por medio
         #de la variable de instancia @edificios, la lista de edificio disponible
+        #para rutas anidadas:
+        #@building = Building.find params[:building_id]
+        #apartments = @building.apartments
     end
     def show
     end
