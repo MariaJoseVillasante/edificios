@@ -7,6 +7,8 @@
       <p class="card-text">Mail: <%= @cliente.email %></p>
       <p class="card-text">Teléfono: <%=  @cliente.telefono%></p>
       <p class="card-text">Propiedades: <%=  @cliente.departamento.ids%></p>
+      <p class="card-text">Rentas: <%=  @cliente.renta_total%></p>
+      <p class="card-text">Renta Total: <%=  @cliente.renta_total.sum%></p>
       <div class="d-flex justify-content-evenly">
           <%= link_to 'Lista', clientes_path, class:"btn btn-secondary" %>
           <%= link_to "Editar", edit_cliente_url(@cliente), class:"btn btn-secondary"%>

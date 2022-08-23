@@ -15,6 +15,10 @@
         <%= form.text_field :numero, class: "form-control" %>
         <%# no usar form_for %>
     </div>
+    <div>
+        <%= form.label :rent, class: "form-label"  %>
+        <%= form.text_field :rent, class: "form-control" %>
+    </div>
     <% if departamento.edificio %>
         <div>
             <%= form.label :edificio_id, "ID Edificio", class: "form-label" %>

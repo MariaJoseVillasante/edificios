@@ -24,6 +24,7 @@
             <th>Nombre Edificio</th>
             <th># Cliente</th>
             <th>Cliente</th>
+            <th>Renta</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -36,6 +37,7 @@
                 <td><%= departamento.edificio.nombre %></td>
                 <td><%= departamento.cliente.id %></td>
                 <td><%= departamento.cliente.nombre %> <%= departamento.cliente.apellido %></td>
+                <td><%= departamento.rent %></td>
                 <td class="d-flex justify-content-evenly"><%= link_to departamento, class:"btn btn-secondary" do%>Ver <%end%>
                     <%= link_to "Editar", edit_departamento_path(departamento), class:"btn btn-secondary"%>
                     <%= button_to "Eliminar", departamento, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>

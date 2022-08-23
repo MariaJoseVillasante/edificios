@@ -18,13 +18,14 @@ require 'faker'
 
 #Cliente.create(nombre: "Luke", apellido: "Luke", email: )
 
-# for i in (1..10)
-#     i = Departamento.create([
-#         {numero: rand(100..999),
-#         edificio_id: rand(1..16),
-#         cliente_id: rand(1..10)}
-#     ])
-# end
+for i in (1..3)
+    i = Departamento.create([
+        {numero: rand(100..999),
+        edificio_id: rand(1..16),
+        cliente_id: rand(1..10),
+        rent: rand(100000..900000)}
+    ])
+end
 
 # for i in (1..10)
 #     i = Cliente.create([
@@ -34,12 +35,12 @@ require 'faker'
 #         telefono: rand(100111..9999999)}
 #     ])
 # end
-for i in (1..2)
-    i = Blog.create([
-        {title: Faker::TvShows::GameOfThrones.house,
-        image_url: Faker::Avatar.image,
-        content: Faker::TvShows::GameOfThrones.quote,
-        author: Faker::TvShows::GameOfThrones.character,
-        status: rand(0..1)}
-    ])
-end
+# for i in (1..2)
+#     i = Blog.create([
+#         {title: Faker::TvShows::GameOfThrones.house,
+#         image_url: Faker::Avatar.image,
+#         content: Faker::TvShows::GameOfThrones.quote,
+#         author: Faker::TvShows::GameOfThrones.character,
+#         status: rand(0..1)}
+#     ])
+# end

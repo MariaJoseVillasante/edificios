@@ -54,7 +54,7 @@ class DepartamentosController < ApplicationController
         @departamento = Departamento.find(params[:id])
     end
     def departamento_params
-        params.require(:departamento).permit(:numero, :edificio_id, :cliente_id)
+        params.require(:departamento).permit(:numero, :edificio_id, :cliente_id, :rent)
     end
     def consulta_edificios
         @edificios = Edificio.select(:id, :nombre).order(nombre: :asc)
