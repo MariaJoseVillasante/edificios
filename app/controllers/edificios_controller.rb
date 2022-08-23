@@ -2,9 +2,12 @@ class EdificiosController < ApplicationController
     before_action :set_edificio, only: %i[ show edit update destroy ]
     # %i evita usar ; y :
     def index
-        @edificios = Edificio.all.order(created_at: :asc)
+        #@edificios = Edificio.all.order(created_at: :asc)
         #El método index del controlador disponibiliza por medio
         #de la variable de instancia @edificios, la lista de edificio disponible
+        #@edificios = Edificio.order(created_at: :asc).all.page(params[:page])
+        @q = Edificio.ransack(params[:q])
+        @edificios = @q.result(distinct:true).all.order(id: :desc).page(params[:page])
     end
     def show
     end

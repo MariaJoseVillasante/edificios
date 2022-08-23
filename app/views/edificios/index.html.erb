@@ -26,6 +26,10 @@
         <% end %>
     </tbody>
 </table>
+<div class="d-flex justify-content-end">  
+<%= paginate @edificios, theme: 'bootstrap-5' %> 
+<%# <%= paginate @books, theme: 'bootstrap-5' %> 
+</div>
 <div class="d-flex justify-content-evenly">
 <%= link_to "Crear edificio nuevo", new_edificio_path, class: "btn btn-secondary" %>
 <%= link_to "Lista de departamentos", departamentos_path, class: "btn btn-secondary" %>

@@ -1,11 +1,6 @@
 <%# <%= @posts %> 
-<nav class="navbar bg-transparent justify-content-between">
- <form class="d-flex gap-4 ms-auto">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
-    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
- </form>
-</nav>
-<h1 class="mb-5 d-flex justify-content-center">Nustros Últimos Posts</h1>
+
+<h1 class="mb-5 d-flex justify-content-center">Nuestros Últimos Posts</h1>
 
 <table class="table tabla table-bordered">
 
@@ -34,4 +29,8 @@
     <% end %>
     </tbody>
 </table>    
+<div class="d-flex justify-content-end">  
+<%= paginate @posts, theme: 'bootstrap-5' %> 
+<%# <%= paginate @books, theme: 'bootstrap-5' %> 
+</div>
 <%= link_to "Nuevo Post", pages_path, class: "btn btn-secondary" %>

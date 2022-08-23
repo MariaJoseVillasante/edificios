@@ -2,7 +2,7 @@ class ClientesController < ApplicationController
     before_action :set_cliente, only: %i[ show edit update destroy] 
 
     def index
-        @clientes = Cliente.all
+        @clientes = Cliente.all.page(params[:page])
     end
     def show
     end

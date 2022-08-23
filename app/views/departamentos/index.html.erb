@@ -1,4 +1,18 @@
 <h1 class="mb-5 d-flex justify-content-center">Lista de departamentos</h1>
+<%# inicio buscador %>
+  <div class="d-flex justify-content-end">
+    <%= search_form_for @q do |f| %>
+    <div class="d-flex mb-5 mb-lg-0 gap-3">
+      <div class="mb-5">
+        <%= f.select :numero_cont, options_for_select(@departamentos.map { |c| [c.numero]}),{:include_blank => true, :prompt => 'Elige un numero de departamento'}, {:class => 'form-select'}  %> 
+      </div>
+      <div>
+      <%= f.submit "Search", class: "btn btn-outline-secondary" %> 
+      </div>     
+    </div>
+    <% end %>
+  </div>
+<%# fin buscador %>
 
 
 <table class="table table-bordered tabla">

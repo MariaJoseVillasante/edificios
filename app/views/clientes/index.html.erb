@@ -28,6 +28,10 @@
         <% end %>
     </tbody>
 </table>
+<div class="d-flex justify-content-end">  
+<%= paginate @clientes, theme: 'bootstrap-5' %> 
+<%# <%= paginate @books, theme: 'bootstrap-5' %> 
+</div>
 <div class="d-flex justify-content-evenly">
 <%= link_to "Agregar cliente nuevo", new_cliente_path, class: "btn btn-secondary" %>
 <%= link_to "Lista de clientes", clientes_path, class: "btn btn-secondary" %>
