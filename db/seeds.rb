@@ -34,10 +34,10 @@ require 'faker'
 #         telefono: rand(100111..9999999)}
 #     ])
 # end
-for i in (1..22)
+for i in (1..2)
     i = Blog.create([
         {title: Faker::TvShows::GameOfThrones.house,
-        image_url: Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+        image_url: Faker::Avatar.image,
         content: Faker::TvShows::GameOfThrones.quote,
         author: Faker::TvShows::GameOfThrones.character,
         status: rand(0..1)}

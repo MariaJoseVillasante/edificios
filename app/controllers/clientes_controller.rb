@@ -4,7 +4,7 @@ class ClientesController < ApplicationController
     def index
         #@clientes = Cliente.all.page(params[:page])
         @q = Cliente.ransack(params[:q])
-        @clientes = @q.result(distinct:true).all.order(id: :desc).page(params[:page])
+        @clientes = @q.result(distinct:true).all.order(id: :asc).page(params[:page])
     end
     def show
     end

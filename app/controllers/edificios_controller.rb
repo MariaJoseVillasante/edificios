@@ -7,7 +7,7 @@ class EdificiosController < ApplicationController
         #de la variable de instancia @edificios, la lista de edificio disponible
         #@edificios = Edificio.order(created_at: :asc).all.page(params[:page])
         @q = Edificio.ransack(params[:q])
-        @edificios = @q.result(distinct:true).all.order(id: :desc).page(params[:page])
+        @edificios = @q.result(distinct:true).all.order(id: :asc).page(params[:page])
     end
     def show
     end
