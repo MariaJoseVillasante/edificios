@@ -1,4 +1,19 @@
 <h1 class="mb-5 d-flex justify-content-center">Lista de clientes</h1>
+<%# inicio buscador %>
+    <div class="d-flex justify-content-end mb-5">
+        <%= search_form_for @q do |f| %>
+        <div class="d-flex mb-2 mb-lg-0 gap-3">
+        <div class="">
+            <%= f.search_field :nombre_or_apellido_or_email_cont, class: "form-control", placeholder: "¿Qué cliente buscas?" %>
+        </div>
+        <div class="">
+        <%= f.submit "Search", class: "btn btn-outline-secondary" %> 
+        </div>     
+        </div>
+        <% end %>
+    </div>
+<%# fin buscador %>
+
 <table class="table table-bordered tabla" >
     <thead>
         <tr>

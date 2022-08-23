@@ -17,7 +17,7 @@ class DepartamentosController < ApplicationController
         #@departamentos = Departamento.includes(:edificio).order(created_at: :asc).page(params[:page])
         #@departamentos = Departamento.includes(:edificio, :cliente).page(params[:page])
         @q = Departamento.ransack(params[:q])
-        @departamentos = @q.result(distinct:true).all.order(:id).page(params[:page])
+        @departamentos = @q.result(distinct:true).all.order(id: :desc).page(params[:page])
 
     end
     def show

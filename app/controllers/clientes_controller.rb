@@ -2,7 +2,9 @@ class ClientesController < ApplicationController
     before_action :set_cliente, only: %i[ show edit update destroy] 
 
     def index
-        @clientes = Cliente.all.page(params[:page])
+        #@clientes = Cliente.all.page(params[:page])
+        @q = Cliente.ransack(params[:q])
+        @clientes = @q.result(distinct:true).all.order(id: :desc).page(params[:page])
     end
     def show
     end
