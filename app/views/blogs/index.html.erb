@@ -1,14 +1,76 @@
 <p style="color: green"><%= notice %></p>
+<div class ="container">
+<% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+        <%= msg %>
+    </div>
+<% end %>
 
-<h1>Blogs</h1>
-
-<div id="blogs">
-  <% @blogs.each do |blog| %>
-    <%= render blog %>
-    <p>
-      <%= link_to "Show this blog", blog %>
-    </p>
-  <% end %>
+<h1 class="m-5 d-flex justify-content-center">Nuestros Posts</h1>
+<%# inicio buscador %>
+  <div class="d-flex justify-content-end">
+    <%= search_form_for @q do |f| %>
+    <div class="d-flex mb-2 mb-lg-0 gap-3">
+      <div class="">
+        <%= f.search_field :title_or_content_or_author_cont, class: "form-control", placeholder: "¿Que buscas?" %>
+      </div>
+      <div class="">
+        <%= f.select :status_eq, options_for_select(Blog.statuses ,
+        @q.status_eq), {include_blank: "Ver todos"},{class: "form-control"} %> 
+      </div>
+      <div class="">
+      <%= f.submit "Search", class: "btn btn-outline-secondary" %> 
+      </div>     
+    </div>
+    <% end %>
+  </div>
+<%# fin buscador %>
+<%= link_to "Crear nuevo blog", new_blog_path, class:"btn btn-secondary mb-2" %>
+    <table class="table table-striped tabla">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        
+        <th scope="col">Title </th>
+        <th scope="col">Content</th>
+        <th scope="col">Image url</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Status</th>
+        <th scope="col">Author</th>
+        <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @blogs.each do |blog| %>
+        <tr>
+          <th scope="row"><%= blog.id %></th>
+          <td><%= blog.title %></td>
+          <td><%= blog.content %></td>
+          <td> <img src="<%=blog.image_url %>" alt="<%= blog.title %>" width="50" height="50"></td>        
+          <td><%= blog.created_at %></td>
+          <td><%= blog.status %></td>
+          <td><%= blog.author %></td>
+          <td class="d-flex justify-content-evenly">
+              <%= link_to "Ver", blog_path(blog), class:"btn btn-secondary"%> 
+              <%= link_to "Editar", edit_blog_path(blog), class:"btn btn-secondary"%> 
+              <%= link_to "Eliminar", blog_path(blog), class:"btn btn-danger", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+          </td> 
+        </tr>
+    <% end %>
+    </tbody>
+    
+  </table>
+  <div class="d-flex justify-content-end">  
+    <%= paginate @blogs, theme: 'bootstrap-5'  %>
+    <%# <%= paginate @books, theme: 'bootstrap-5' %> 
+  </div>
 </div>
 
-<%= link_to "New blog", new_blog_path %>
+<%= link_to "Blog", blogs_path, class:"btn btn_secondary" %>
+
+<!-- app/views/posts/index.html.erb -->
+<p id="notice"><%= notice %></p>
+

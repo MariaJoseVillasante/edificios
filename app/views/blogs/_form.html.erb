@@ -10,33 +10,37 @@
       </ul>
     </div>
   <% end %>
+<div class="container">
+  <div class="field mb-3">
+    <%= form.label :title, style: "display: block", class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Escribe tu post' %>
+  </div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="field mb-3">
+    <%= form.label :image_url, style: "display: block", class: 'form-label' %>
+    <%= form.text_field :image_url, class: 'form-control', placeholder: 'Escribe tu post' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :content, style: "display: block", class: 'form-label' %>
+    <%= form.text_area :content, class: 'form-control', placeholder: 'Escribe tu post' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :author, style: "display: block", class: 'form-label' %>
+    <%= form.text_field :author, class: 'form-control', placeholder: 'Escribe tu post' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :status, style: "display: block", class: 'form-label' %>
+    <%= form.select(:status, Blog.statuses.keys.map{|b| [b.humanize, b]}, {}, {class: 'form-control'}) %>
+
   </div>
 
   <div>
-    <%= form.label :image_url, style: "display: block" %>
-    <%= form.text_field :image_url %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%# <%= form.submit %>
+    <button type="submit" class="btn btn-secondary">Guardar</button> 
+    <%= link_to "Blog", root_path, class:"btn btn-secondary" %> 
   </div>
 <% end %>
+</div>

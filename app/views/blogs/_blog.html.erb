@@ -1,27 +1,23 @@
 <div id="<%= dom_id blog %>">
-  <p>
-    <strong>Title:</strong>
-    <%= blog.title %>
-  </p>
-
-  <p>
-    <strong>Image url:</strong>
-    <%= blog.image_url %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= blog.content %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= blog.author %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= blog.status %>
-  </p>
-
+<div class="container mt-5 d-flex justify-content-evenly mb-5">
+    <div class="card tabla" style="width: 25rem;"> 
+        <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center">Title: <%= blog.title %></h5>
+            <h5 class="card-title d-flex justify-content-center">Author: <%= blog.author %></h5>
+            <p class="card-text d-flex justify-content-evenly">Content: <%= blog.content %></p>
+            <p class="card-text d-flex justify-content-evenly">Status: <%= blog.status %></p>
+            <div>
+            </div><img src="<%=blog.image_url %>" class="m-5"  alt="<%= blog.title %>" width="250" height="250">
+            <div class="d-flex justify-content-evenly">
+                <%= link_to 'Lista', blogs_path, class:"btn btn-secondary" %>
+                <%= link_to 'Editar', edit_blog_path(blog), class:"btn btn-secondary" %>
+                <%= link_to 'Nuevo', new_blog_path, class:"btn btn-secondary" %>
+                <%= link_to "Eliminar", blog_path(blog), class:"btn btn-danger", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
