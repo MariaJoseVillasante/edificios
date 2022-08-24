@@ -18,7 +18,7 @@ class DepartamentosController < ApplicationController
         #@departamentos = Departamento.includes(:edificio, :cliente).page(params[:page])
         @q = Departamento.ransack(params[:q])
         @departamentos = @q.result(distinct:true).all.order(id: :asc).page(params[:page])
-        #@total_arriendos_deptos = Departamento.all.sum(:rent)
+        @total_arriendos_deptos = Departamento.all.sum(:rent)
     end
     def show
     end
@@ -54,7 +54,7 @@ class DepartamentosController < ApplicationController
         @departamento = Departamento.find(params[:id])
     end
     def departamento_params
-        params.require(:departamento).permit(:numero, :edificio_id, :cliente_id, :rent)
+        params.require(:departamento).permit(:numero, :rent, :edificio_id, :cliente_id)
     end
     def consulta_edificios
         @edificios = Edificio.select(:id, :nombre).order(nombre: :asc)

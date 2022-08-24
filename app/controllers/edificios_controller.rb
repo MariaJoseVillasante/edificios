@@ -49,7 +49,5 @@ class EdificiosController < ApplicationController
         #params.require(:edificio).permit(:nombre, :direccion, :ciudad)
         #para los formularios anidados:
         params.require(:edificio).permit(:nombre, :direccion, :ciudad, departamentos_attributes:[:id, :numbre, :sale_price, :_destroy])
-
-
     end
 end

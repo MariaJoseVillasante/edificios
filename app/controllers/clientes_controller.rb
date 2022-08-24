@@ -2,7 +2,7 @@ class ClientesController < ApplicationController
     before_action :set_cliente, only: %i[ show edit update destroy] 
 
     def index
-        #@clientes = Cliente.all.page(params[:page])
+        @clientes = Cliente.includes(:departamentos)
         @q = Cliente.ransack(params[:q])
         @clientes = @q.result(distinct:true).all.order(id: :asc).page(params[:page])
     end
@@ -10,6 +10,7 @@ class ClientesController < ApplicationController
     end
     def new
         @cliente = Cliente.new
+        @cliente.departamentos.build
     end
     def edit
     end
@@ -38,6 +39,6 @@ class ClientesController < ApplicationController
         @cliente = Cliente.find(params[:id])
     end
     def cliente_params
-        params.require(:cliente).permit(:nombre, :apellido, :email, :telefono)
+        params.require(:cliente).permit(:nombre, :apellido, :email, :telefono, departamentos_attributes:[:id, :numbre, :sale_price, :_destroy])
     end
 end
