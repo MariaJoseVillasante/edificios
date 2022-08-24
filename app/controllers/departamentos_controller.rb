@@ -18,7 +18,7 @@ class DepartamentosController < ApplicationController
         #@departamentos = Departamento.includes(:edificio, :cliente).page(params[:page])
         @q = Departamento.ransack(params[:q])
         @departamentos = @q.result(distinct:true).all.order(id: :asc).page(params[:page])
-
+        @total_arriendos_deptos = Departamento.sum(:rent)
     end
     def show
     end

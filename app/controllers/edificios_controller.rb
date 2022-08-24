@@ -6,6 +6,7 @@ class EdificiosController < ApplicationController
         #El método index del controlador disponibiliza por medio
         #de la variable de instancia @edificios, la lista de edificio disponible
         #@edificios = Edificio.order(created_at: :asc).all.page(params[:page])
+        @edificios = Edificio.includes(:departamentos)
         @q = Edificio.ransack(params[:q])
         @edificios = @q.result(distinct:true).all.order(id: :asc).page(params[:page])
     end
