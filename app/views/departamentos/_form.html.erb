@@ -43,8 +43,14 @@
             <%= form.select(@clientes, options_from_collection_for_select(@clientes, :id, :nombre), { include_blank: "Elige un cliente" }, {class: "form-select"}) %>        
         <% end %>
     </div>
+    <%# <p>Apartment fields</p>
+    <%= form.fields_for :departamentos do |departamento_form| %>
+        <%# <%= departamento_form.label :numero %>
+        <%# <%= departamento_form.text_field :numero %> 
+        <%# <%= departamento_form.label :renta %>
+        <%# <%= departamento_form.text_field :renta %>
+    <%# <% end %> 
     <div class="">
-        <%# <%= form.submit "Guardar" %>
         <%= form.submit nil, class: "btn btn-secondary mt-5" %>
     </div>
 <% end %>

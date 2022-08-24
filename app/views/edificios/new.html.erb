@@ -25,6 +25,13 @@
                 <%= form.label :ciudad %>
                 <%= form.text_field :ciudad, class: "form-control" %>
             </div>
+            <%# <p>Apartment fields</p>
+            <%= form.fields_for :departamentos do |departamento_form| %>
+                <%# <%= departamento_form.label :numero %>
+                <%# <%= departamento_form.text_field :numero %>
+                <%# <%= departamento_form.label :rent %>
+                <%# <%= departamento_form.text_field :rent %>
+            <%# <% end %>
             <div>
                 <%# <%= form.submit "Guardar" %>
                 <%= form.submit nil, class: "btn btn-secondary mt-5" %>

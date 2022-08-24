@@ -14,6 +14,8 @@ class EdificiosController < ApplicationController
     end
     def new
         @edificio = Edificio.new
+        #para el formulario anidado:
+        @edificio.departamentos.build
     end
     def edit
     end
@@ -44,6 +46,10 @@ class EdificiosController < ApplicationController
         @edificio = Edificio.find(params[:id])
     end
     def edificio_params
-        params.require(:edificio).permit(:nombre, :direccion, :ciudad)
+        #params.require(:edificio).permit(:nombre, :direccion, :ciudad)
+        #para los formularios anidados:
+        params.require(:edificio).permit(:nombre, :direccion, :ciudad, departamentos_attributes:[:id, :numbre, :sale_price, :_destroy])
+
+
     end
 end
