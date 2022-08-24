@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">Edificio: <%= @departamento.numero %></h5>
       <h6 class="card-subtitle mb-2 text-muted">ID: <%= @departamento.id %></h6>
-      <p class="card-text">Id Edificio: <%= @departamento.edificio_id %></p>
+      <p class="card-text">Id Edificio: <%= @departamento.edificio.id %></p>
       <p class="card-text">Nombre Edificio: <%=@departamento.edificio.nombre%></p>
       <p class="card-text">Renta: <%=@departamento.rent%></p>
       <p class="card-text">Nombre Cliente: <%=@departamento.cliente.nombre%> <%=@departamento.cliente.apellido%></p>
