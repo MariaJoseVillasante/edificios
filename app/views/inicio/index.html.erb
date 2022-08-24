@@ -1,6 +1,5 @@
 <div class="container mt-3 row">
     <div class="col-lg-6 col-md-6 col-sm-12">   
-<%# <%= image_tag "pexels-guilherme-rossi-1705073", width:"80%", class:"shadow rounded"%> 
 <%= image_tag "https://images.pexels.com/photos/1705073/pexels-photo-1705073.jpeg", width:"80%", class:"shadow rounded"%> 
         <%# si viene de public carpeta images %>
         <%# <image src="/images/nombre.jpeg"> %>
@@ -8,11 +7,29 @@
     </div>    
     <div class="col-lg-6 col-md-6 col-sm-12">
         <h1 class="d-flex justify-content-evenly m-5">DEPTOS: Administración de Departamentos</h1>
+        <div class="m-5">
+        <% if current_user  %>
+            <p>Hello <%= current_user.email %>!</p>
+            <p>You are a [ <%= current_user.role %> ] </p>
+            <% if current_user.admin?  %>
+            <br>
+                There are <%= User.count %> users in the sistem
+            <% end %>
+            <p>You have successfully authenticated with your Devise account.
+                You are now ready to interact with this application.</p>
+            <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+        <% else %>
+            <p>Registrate o inicia sesión.</p>
+            <p>
+            <%= link_to "Registrate", new_user_registration_path, class: "btn btn-secondary m-4"%>
+            <%= link_to "Login", new_user_session_path, class: "btn btn-secondary m-4" %>
+          </p>
+        <% end %>
+        </div>
         <p class="m-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, beatae! Obcaecati placeat soluta, quam perspiciatis doloribus, eos ad qui maiores saepe iusto fugiat similique ipsam facilis commodi sunt dignissimos corporis!</p>
         <%= link_to "Lista de los edificios", list_edificios_path, class: "btn btn-secondary m-4" %>
         <%= link_to "Lista de departamentos", departamentos_path, class: "btn btn-secondary m-4" %>
         <%= link_to "Lista Clientes", clientes_path, class: "btn btn-secondary m-4" %>
-        <%= link_to "Nuestro Blog", blogs_path, class: "btn btn-secondary m-4" %>
-                            
+        <%= link_to "Nuestro Blog", blogs_path, class: "btn btn-secondary m-4" %>                         
     </div>
 </div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   get 'api/news'
   get 'api/:date1/:date2',    to: 'api#between_dates'
   resources :blogs

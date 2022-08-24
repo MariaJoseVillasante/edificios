@@ -5,6 +5,7 @@ class DepartamentosController < ApplicationController
     # %i evita usar ; y :
     before_action :consulta_edificios, only: %i[ show new edit update]
     before_action :consulta_clientes, only: %i[ show new edit update]
+    before_action :authenticate_user!
 
     def index
         #@departamentos = Departamento.includes(:edificio).order(created_at: :asc)

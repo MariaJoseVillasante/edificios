@@ -1,5 +1,6 @@
 class EdificiosController < ApplicationController
     before_action :set_edificio, only: %i[ show edit update destroy ]
+    before_action :authenticate_user!
     # %i evita usar ; y :
     def index
         #@edificios = Edificio.all.order(created_at: :asc)

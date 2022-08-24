@@ -77,3 +77,4 @@ gem "faker"
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'ransack'
+gem "devise", "~> 4.8"
