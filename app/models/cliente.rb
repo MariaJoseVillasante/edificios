@@ -10,10 +10,10 @@ class Cliente < ApplicationRecord
                     rentas << r.rent.to_i 
                 end
             end 
+            rentas.sum
         else
             "Sin arriendo"             
         end
-        rentas
     end
     # def numero_asistentes
     #     asis =[]

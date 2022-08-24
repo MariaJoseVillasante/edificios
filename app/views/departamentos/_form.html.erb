@@ -38,9 +38,9 @@
     <div>
         <%= form.label :cliente_id, class: "form-label"  %>
         <% if departamento.cliente %>
-            <%= form.select(@clientes, options_from_collection_for_select(@clientes, :id, :nombre, departamento.cliente_id), {}, {class: "form-select"}) %>
+            <%= form.select(:cliente_id, options_from_collection_for_select(@clientes, :id, :nombre, departamento.cliente_id), {}, {class: "form-select"}) %>
         <% else %>
-            <%= form.select(@clientes, options_from_collection_for_select(@clientes, :id, :nombre), { include_blank: "Elige un cliente" }, {class: "form-select"}) %>        
+            <%= form.select(:cliente_id, options_from_collection_for_select(@clientes, :id, :nombre), { include_blank: "Elige un cliente" }, {class: "form-select"}) %>        
         <% end %>
     </div>
     <%# <p>Apartment fields</p>
