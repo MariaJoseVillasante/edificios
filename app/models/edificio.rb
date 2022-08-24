@@ -5,6 +5,7 @@ class Edificio < ApplicationRecord
     validates :nombre, presence: true
     validates :direccion, presence: true
     validates :ciudad, presence: true
+    accepts_nested_attributes_for :departamentos
 
     paginates_per 20
     # validaciones para que no se guarde el objeto vacío
