@@ -10,7 +10,7 @@ class Cliente < ApplicationRecord
                     rentas << r.rent.to_i 
                 end
             end 
-            rentas.sum
+            rentas
         else
             "Sin arriendo"             
         end

@@ -9,5 +9,18 @@ class Departamento < ApplicationRecord
   validates :cliente_id, presence: true, uniqueness: {scope: :id}
 
   paginates_per 20
-
+  #aca no...
+  # def total_arriendo_departamento
+  #   if self.id.present?
+  #       rentas = []
+  #       @departamentos.each do |r|
+  #           if r.rent != nil
+  #               rentas << r.rent.to_i 
+  #           end
+  #       end 
+  #       rentas.sum
+  #   else
+  #       "Sin arriendo"             
+  #   end
+  # end
 end

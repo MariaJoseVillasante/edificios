@@ -14,7 +14,7 @@
   </div>
 <%# fin buscador %>
 
-<h4>Total Rentas: $<%= @total_arriendos_deptos %></h4>
+<h4>Total Rentas: $<%= number_with_delimiter(@total_arriendos_deptos, :delimiter => '.')%></h4>
 <table class="table table-bordered tabla">
     <thead>
         <tr>
@@ -37,7 +37,7 @@
                 <td><%= departamento.edificio.nombre %></td>
                 <td><%= departamento.cliente.id %></td>
                 <td><%= departamento.cliente.nombre %> <%= departamento.cliente.apellido %></td>
-                <td>$<%= departamento.rent %></td>
+                <td>$<%= number_with_delimiter(departamento.rent, :delimiter => '.')%></td>
                 <td class="d-flex justify-content-evenly"><%= link_to departamento, class:"btn btn-secondary" do%>Ver <%end%>
                     <%= link_to "Editar", edit_departamento_path(departamento), class:"btn btn-secondary"%>
                     <%= button_to "Eliminar", departamento, method: :delete, data: {confirm: "Seguro?"}, class:"btn btn-danger" %>

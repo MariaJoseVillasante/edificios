@@ -30,9 +30,9 @@
     <div>
         <%= form.label :edificio_id, class: "form-label"  %>
         <% if departamento.edificio %>
-            <%= form.select(:edificio_id, options_from_collection_for_select(edificios, :id, :nombre, departamento.edificio_id), {}, {class: "form-select"}) %>
+            <%= form.select(:edificio_id, options_from_collection_for_select(edificios, :id, :nombre_completo, departamento.edificio_id), {}, {class: "form-select"}) %>
         <% else %>
-            <%= form.select(:edificio_id, options_from_collection_for_select(edificios, :id, :nombre), { include_blank: "Elige un edificio" }, {class: "form-select"}) %>        
+            <%= form.select(:edificio_id, options_from_collection_for_select(edificios, :id, :nombre_completo), { include_blank: "Elige un edificio" }, {class: "form-select"}) %>        
         <% end %>
     </div>
     <div>

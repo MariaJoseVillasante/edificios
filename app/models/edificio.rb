@@ -14,7 +14,20 @@ class Edificio < ApplicationRecord
     #def Departamento
     #    Departamento.where(edificio_id: self.id)
     #end
-    # def to_s
-    #   name
-    # end
+    def total_arriendo_edificio
+        if self.departamentos.present?
+            rentas = []
+            self.departamentos.map do |r|
+                if r.rent != nil
+                    rentas << r.rent.to_i 
+                end
+            end 
+            rentas.sum
+        else
+            "Sin arriendo"             
+        end
+    end
+    def nombre_completo
+        "#{id} #{"-"} #{nombre}"
+      end
 end

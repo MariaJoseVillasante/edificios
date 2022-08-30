@@ -17,14 +17,21 @@
 <table class= "table table-bordered tabla">
     <thead>
         <tr>
-            <th>Numero</th>
+            <th>Número</th>
+            <th>Renta</th>
         </tr>
     </thead>
     <tbody>
         <% @edificio.departamentos.each do |depto| %>
             <tr>
                 <td><%= depto.numero %></td>
+                <td>$<%= number_with_delimiter(depto.rent, :delimiter => '.')%></td>
             </tr>
+            
         <% end %>
+        <tr>
+            <td>Total:</td>
+            <td>$<%=  number_with_delimiter(@edificio.total_arriendo_edificio, :delimiter => '.')%></td> 
+        </tr>
     </tbody>
 </table>
